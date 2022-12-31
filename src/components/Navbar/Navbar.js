@@ -5,7 +5,7 @@ import { Menu, Container } from 'semantic-ui-react';
 const Navbar = () => {
   return (
     <>
-    <Menu>
+    <Menu inverted>
         <Container>
             <Link to='/'>
                 <Menu.Item>Starwars API</Menu.Item>
