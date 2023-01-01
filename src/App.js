@@ -4,13 +4,13 @@ import Home from './components/Home/Home';
 import People from './components/People/People';
 import Planets from './components/Planets/Planets';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {Container} from 'semantic-ui-react';
+import {Container, Dimmer, Loader} from 'semantic-ui-react';
 
 
 function App() {
   const [people, setPeople] = useState([]);
   const [planet, setPlanet] = useState([]);
-  const [landing, setLanding] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchPeople(){
@@ -27,18 +27,25 @@ function App() {
 
     fetchPeople();
     fetchPlanet();
+    setLoading(false);
   }, [])
   console.log('people', people);
   return (
    <>
    <BrowserRouter>
+   <Navbar />
    <Container>
-    <Navbar />
-   <Routes>
+    {loading ? (
+      <Dimmer active inverted>
+        <Loader inverted>Loading</Loader>
+      </Dimmer>
+    ):(
+    <Routes>
       <Route exact path='/' element={<Home/>}></Route>
-      <Route exact path='/people' element={<People/>}></Route>
-      <Route exact path='/planets' element={<Planets/>}></Route>
+      <Route exact path='/people' element={<People data={people}/>}></Route>
+      <Route exact path='/planets' element={<Planets data={planet}/>}></Route>
     </Routes>
+    )}
    </Container>
    </BrowserRouter>
    </>
