@@ -27,6 +27,8 @@ function App() {
       setLoading(false);
     }
 
+   
+
     fetchPeople();
     fetchPlanet();
   }, [])
@@ -42,7 +44,7 @@ function App() {
       </Dimmer>
     ):(
     <Routes>
-      <Route exact path='/' element={<Home/>}></Route>
+      <Route exact path='/' element={<Home />}></Route>
       <Route exact path='/people' element={<People data={people}/>}></Route>
       <Route exact path='/planets' element={<Planets data={planet}/>}></Route>
     </Routes>

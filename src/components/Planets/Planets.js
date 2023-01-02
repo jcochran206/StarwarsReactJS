@@ -5,7 +5,7 @@ const Planets = ({data}) => {
   return (
     <>
     <h1>Planets</h1>
-      <Grid columns={4}>
+      <Grid columns={3}>
         {data.map((planet, i) => {
           return (
             <Grid.Column key={i}>
@@ -19,8 +19,6 @@ const Planets = ({data}) => {
                   <p>{planet.population}</p>
                   <strong>terrain</strong>
                   <p>{planet.terrain}</p>
-                  <strong>Image</strong>
-                  <Image src={planet.url} size='small' />
                   </Card.Description>
                 </Card.Content>
               </Card>
