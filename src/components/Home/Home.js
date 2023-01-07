@@ -8,10 +8,7 @@ const Home = () => {
   return (
     <>
     <Container>
-      <Form inverted>
-        <Form.Input fluid label="Search" placeholder='Search for your fav...' onChange={(e) => setSearch(e.target.value)}/>
-        <Button type='submit'>Submit</Button>
-      </Form>
+      <h2>Starwars API ReactJS</h2>
       <p>Search for your favorite Star Wars Characters, vehicles, planets and more</p>
     </Container>
     </>
